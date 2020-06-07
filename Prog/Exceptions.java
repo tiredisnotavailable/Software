@@ -1,10 +1,10 @@
 package Software.Prog;
 
-public class denomException extends Exception
+public class Exceptions extends Exception
 {
     private static final long serialVersionUID = 1L;
 
-    public denomException(String message)
+    public Exceptions(String message)
     {
         super(message);
     }
