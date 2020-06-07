@@ -12,9 +12,9 @@ public class Calculate {
      * @param num2
      * @param operation
      * @return Integer
-     * @throws denomException
+     * @throws Exceptions
      */
-    public static Integer calculate(int num1, int num2, char operation) throws denomException 
+    public static Integer calculate(int num1, int num2, char operation) throws Exceptions 
     {
         
         int result;
@@ -32,7 +32,7 @@ public class Calculate {
             case '/':
                 if (num2 == 0)
                 {
-                    throw new denomException("denominator is incorrect");
+                    throw new Exceptions("denominator is incorrect");
                 }
                 result = num1 / num2;
                 break;
@@ -46,10 +46,10 @@ public class Calculate {
     
     
     /** 
-     * @throws denomException
+     * @throws Exceptions
      */
     @Test
-    public void testResult() throws denomException
+    public void testResult() throws Exceptions
     {
         assertEquals(Integer.valueOf(25), calculate(5,5,'*'));
         assertEquals(Integer.valueOf(17), calculate(10,7,'+'));

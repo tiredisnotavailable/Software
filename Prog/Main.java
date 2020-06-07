@@ -52,7 +52,7 @@ public class Main
         try {
             result = Calculate.calculate(num1, num2, operation);
             printResult(num1, num2, result, operation);
-        } catch (denomException e) {
+        } catch (Exceptions e) {
             System.err.println(e.getMessage());
         }
     }
