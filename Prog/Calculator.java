@@ -110,19 +110,43 @@ public class Calculator {
     }
 
     /**
+     * @param a
+     * @return double
+     */
+    public static double factorial(double a) {
+        boolean flag = true;
+        double result = 1;
+        if (a < 0 || a == -0) {
+            flag = false;
+            a = a * (-1);
+        }
+
+        for (int i = 2; i <= a; i++) {
+            result = result * i;
+        }
+        if (flag) {
+            return result;
+        } else {
+            return result * (-1);
+        }
+
+    }
+
+    /**
      * @throws Exceptions
      */
     @Test
     public void test() throws Exceptions {
         double x1 = -0.2;
         double x2 = -1.0;
-        double y[] = quadraticEquation(5.0, 6.0, 1.0);
+        double y[] = quadraticEquation(5, 6, 1);
         assertEquals(x1, y[0]);
         assertEquals(x2, y[1]);
-        assertEquals(25.0, calculate(5.0, 5.0, '*'));
-        assertEquals(25.0, pow(5.0, 2.0));
+        assertEquals(25, calculate(5, 5, '*'));
+        assertEquals(25, pow(5, 2));
         assertEquals(Math.sin(Math.PI / 2), trigonometry((Math.PI / 2), "sin"));
         assertEquals(1, logarithm(2, 2));
+        assertEquals(6, factorial(3));
 
     }
 

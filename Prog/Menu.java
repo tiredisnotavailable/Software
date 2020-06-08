@@ -15,6 +15,7 @@ public class Menu {
               System.out.println("3. Trigonometric function");
               System.out.println("4. ax^2 + bx + c = 0");
               System.out.println("5. logarithm");
+              System.out.println("6. factorial");
               Scanner in = new Scanner(System.in);
               int i = in.nextInt();
               switch (i) {
@@ -32,11 +33,25 @@ public class Menu {
                             break;
                      case 5:
                             logarithm(in);
+                            break;
+                     case 6:
+                            factorial(in);
+                            break;
                      default:
                             in.close();
                             throw new Exceptions("Wrong number");
               }
               in.close();
+       }
+
+       
+       /** 
+        * @param in
+        */
+       public static void factorial(Scanner in){
+              double a = setNumber(in);
+              double result = Calculator.factorial(a);
+              printResultFactorial(a, result);
        }
 
        /**
@@ -185,6 +200,15 @@ public class Menu {
         */
        public static void printResultLogarithm(double a, double b, double result) {
               System.out.println("log" + a + "(" + b + ")" + " = " + result);
+       }
+
+       
+       /** 
+        * @param a
+        * @param result
+        */
+       public static void printResultFactorial(double a, double result){
+              System.out.println(a + "! = " + result);
        }
 
 }
