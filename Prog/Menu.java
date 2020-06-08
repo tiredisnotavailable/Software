@@ -28,6 +28,7 @@ public class Menu
                    break;
               case 3:
                    trigonometry(in);
+                   break;
               case 4: 
                    quadraticEquation(in);
                    break;
