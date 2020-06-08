@@ -20,24 +20,29 @@ public class Menu
           int i = in.nextInt();
           switch (i) 
           {
-               case 1:
-                    raiseNumber(in);
-                    break;
-               case 2:
-                    calculate(in);
-                    break;
-               case 3:
-                    trigonometry(in);
-               case 4: 
-                    quadraticEquation(in);
-                    break;
-               default:
-                    in.close();
-                    throw new Exceptions("Wrong number");
+              case 1:
+                   raiseNumber(in);
+                   break;
+              case 2:
+                   calculate(in);
+                   break;
+              case 3:
+                   trigonometry(in);
+              case 4: 
+                   quadraticEquation(in);
+                   break;
+              default:
+                   in.close();
+                   throw new Exceptions("Wrong number");
           } 
           in.close();
    }
 
+   
+   /** 
+    * @param in
+    * @throws Exceptions
+    */
    public static void quadraticEquation(Scanner in) throws Exceptions
    {
           System.out.println("a = ");
@@ -51,6 +56,11 @@ public class Menu
           printResultQuadraticEquation(result);
    }
 
+   
+   /** 
+    * @param in
+    * @throws Exceptions
+    */
    public static void trigonometry(Scanner in) throws Exceptions
    {
           System.out.println("cos/sin/tan/ctan");
@@ -94,6 +104,11 @@ public class Menu
           printResultCalculate(num1, num2, operation, result);
    }
 
+   
+   /** 
+    * @param in
+    * @return String
+    */
    public static String setFunction(Scanner in)
    {
           System.out.print("Enter a function: ");
@@ -123,21 +138,44 @@ public class Menu
           return operation;
    }
 
+   
+   /** 
+    * @param num1
+    * @param num2
+    * @param operation
+    * @param result
+    */
    public static void printResultCalculate(double num1, double num2, double operation, double result)
    {     
           System.out.println(num1 + " " + operation + " " + num2 + " = " + result);
    }
 
+   
+   /** 
+    * @param num1
+    * @param num2
+    * @param result
+    */
    public static void printResultRaiseNumber(double num1, double num2, double result)
    {
           System.out.println(num1 + "^(" + num2 + ") = " + result);
    }
 
+   
+   /** 
+    * @param num
+    * @param function
+    * @param result
+    */
    public static void printResultTrigonometry(double num, String function, double result)
    {
           System.out.println(function + "(" + num + ") = " + result);
    }
    
+   
+   /** 
+    * @param result
+    */
    public static void printResultQuadraticEquation(double[] result)
    {
         if(result[0] == result[1])

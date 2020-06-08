@@ -64,6 +64,13 @@ public class Calculator
         }
     }
     
+    
+    /** 
+     * @param num
+     * @param function
+     * @return double
+     * @throws Exceptions
+     */
     public static double trigonometry(double num, String function) throws Exceptions
     {
         double result = 0;
@@ -87,6 +94,14 @@ public class Calculator
         return result;
     }
     
+    
+    /** 
+     * @param a
+     * @param b
+     * @param c
+     * @return double[]
+     * @throws Exceptions
+     */
     public static double[] quadraticEquation(double a, double b, double c) throws Exceptions
     {
         double result[] = new double[2];
@@ -108,6 +123,7 @@ public class Calculator
     {
         assertEquals(25, calculate(5, 5, '*'));
         assertEquals(25, pow(5, 2));
+        //assertEquals();
     }
 
 }
