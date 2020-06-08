@@ -10,7 +10,8 @@ public class Main
      */
     public static void main(String[] args) throws Exceptions 
     {
-        try {
+        try 
+        {
             Menu.onStart(); 
         } catch (Exception e) {
             System.err.print(e);
