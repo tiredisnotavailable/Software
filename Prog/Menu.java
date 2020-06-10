@@ -10,61 +10,34 @@ public class Menu {
         * @throws Exceptions
         */
        public static void onStart() throws Exceptions {
-              System.out.println("1. Raise number to a power");
-              System.out.println("2. +*-/  (2 numbers)");
-              System.out.println("3. Trigonometric function");
-              System.out.println("4. ax^2 + bx + c = 0");
-              System.out.println("5. logarithm");
-              System.out.println("6. factorial");
               Scanner in = new Scanner(System.in);
-              int i = in.nextInt();
-              switch (i) {
-                     case 1:
-                            raiseNumber(in);
-                            break;
-                     case 2:
-                            calculate(in);
-                            break;
-                     case 3:
-                            trigonometry(in);
-                            break;
-                     case 4:
-                            quadraticEquation(in);
-                            break;
-                     case 5:
-                            logarithm(in);
-                            break;
-                     case 6:
-                            factorial(in);
-                            break;
-                     default:
-                            in.close();
-                            throw new Exceptions("Wrong number");
-              }
+              int key;
+              do {
+                     System.out.println("1. quadratic equation");
+                     System.out.println("2. calculate smth");
+                     key = in.nextInt();
+                     switch (key) {
+                            case 1:
+                                   quadraticEquation(in);
+                                   break;
+                            case 2:
+                                   while (true) {
+                                          String string = "";
+                                          string = in.nextLine();
+                                          if (string.equals("exit")) {
+                                                 break;
+                                          }
+                                          DataBase database = new DataBase(string);
+                                          database.calculate();
+                                          System.out.println(database.toString());
+                                   }
+                                   break;
+                            default:
+                                   break;
+                     }
+              } while (key == 2 || key == 1);
+
               in.close();
-       }
-
-       
-       /** 
-        * @param in
-        */
-       public static void factorial(Scanner in){
-              double a = setNumber(in);
-              double result = Calculator.factorial(a);
-              printResultFactorial(a, result);
-       }
-
-       /**
-        * @param in
-        */
-       public static void logarithm(Scanner in) {
-              System.out.println("Loga b");
-              System.out.println("a = ");
-              double a = setNumber(in);
-              System.out.println("b = ");
-              double b = setNumber(in);
-              double result = Calculator.logarithm(a, b);
-              printResultLogarithm(a, b, result);
        }
 
        /**
@@ -85,100 +58,12 @@ public class Menu {
 
        /**
         * @param in
-        * @throws Exceptions
-        */
-       public static void trigonometry(Scanner in) throws Exceptions {
-              System.out.println("cos/sin/tan/ctan");
-              String function = setFunction(in);
-              double num = setNumber(in);
-
-              double result = Calculator.trigonometry(num, function);
-
-              printResultTrigonometry(num, function, result);
-       }
-
-       /**
-        * @param in
-        * @throws Exceptions
-        */
-       public static void raiseNumber(Scanner in) throws Exceptions {
-              double num1 = setNumber(in);
-              double num2 = setNumber(in);
-
-              double result = Calculator.pow(num1, num2);
-
-              printResultRaiseNumber(num1, num2, result);
-       }
-
-       /**
-        * @param in
-        * @throws Exceptions
-        */
-       public static void calculate(Scanner in) throws Exceptions {
-              double num1 = setNumber(in);
-              double num2 = setNumber(in);
-              char operation = setOperation(in);
-
-              double result = Calculator.calculate(num1, num2, operation);
-
-              printResultCalculate(num1, num2, operation, result);
-       }
-
-       /**
-        * @param in
-        * @return String
-        */
-       public static String setFunction(Scanner in) {
-              System.out.print("Enter a function: ");
-              String function = in.next();
-              return function;
-       }
-
-       /**
-        * @param in
         * @return double
         */
        public static double setNumber(Scanner in) {
               System.out.print("Enter a number: ");
               double number = in.nextDouble();
               return number;
-       }
-
-       /**
-        * @param in
-        */
-       public static char setOperation(Scanner in) {
-              System.out.print("Enter an operation: ");
-              char operation = in.next().charAt(0);
-              return operation;
-       }
-
-       /**
-        * @param num1
-        * @param num2
-        * @param operation
-        * @param result
-        */
-       public static void printResultCalculate(double num1, double num2, double operation, double result) {
-              System.out.println(num1 + " " + operation + " " + num2 + " = " + result);
-       }
-
-       /**
-        * @param num1
-        * @param num2
-        * @param result
-        */
-       public static void printResultRaiseNumber(double num1, double num2, double result) {
-              System.out.println(num1 + "^(" + num2 + ") = " + result);
-       }
-
-       /**
-        * @param num
-        * @param function
-        * @param result
-        */
-       public static void printResultTrigonometry(double num, String function, double result) {
-              System.out.println(function + "(" + num + ") = " + result);
        }
 
        /**
@@ -191,24 +76,6 @@ public class Menu {
                      System.out.println("x1 = " + result[0]);
                      System.out.println("x2 = " + result[1]);
               }
-       }
-
-       /**
-        * @param a
-        * @param b
-        * @param result
-        */
-       public static void printResultLogarithm(double a, double b, double result) {
-              System.out.println("log" + a + "(" + b + ")" + " = " + result);
-       }
-
-       
-       /** 
-        * @param a
-        * @param result
-        */
-       public static void printResultFactorial(double a, double result){
-              System.out.println(a + "! = " + result);
        }
 
 }
