@@ -3,7 +3,6 @@ package Software.Prog;
 public class DataType {
     public DataType() {
     }
-
     public DataType(String string) {
         this.string = string;
         if ((this.string.equals("cos")) || (this.string == "sin") || (this.string == "tan")

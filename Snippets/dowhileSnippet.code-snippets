@@ -1,0 +1,12 @@
+{
+	"Print to console": {
+		"scope": "java",
+		"prefix": "dowhile",
+		"body": [
+			"do {",
+			"",
+			"} while (${1:condition})"
+		],
+		"description": "Log output to console"
+	}
+}

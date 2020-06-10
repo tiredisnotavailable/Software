@@ -7,9 +7,8 @@ public class DataBase {
     public DataBase(String string) {
         char charArray[] = string.toCharArray();
         array = Parser.parseString(charArray);
-
     }
-
+    
     /**
      * @return String
      */
@@ -21,19 +20,17 @@ public class DataBase {
         return string;
     }
 
-    
-    /** 
+    /**
      * @throws Exceptions
      */
     public void calculate() throws Exceptions {
         this.functions();
         this.factorialAndPow();
         this.arithmetics();
-        
+
     }
 
-    
-    /** 
+    /**
      * @throws Exceptions
      */
     public void arithmetics() throws Exceptions {
@@ -58,8 +55,7 @@ public class DataBase {
         }
     }
 
-    
-    /** 
+    /**
      * @throws Exceptions
      */
     public void factorialAndPow() throws Exceptions {
@@ -70,14 +66,13 @@ public class DataBase {
             } else if (array.get(i).getCharacter() == '^') {
                 array.set(i - 1, Calculator.pow(array.get(i - 1).getNumber(), array.get(i + 1).getNumber()));
                 array.remove(i + 1);
-                array.remove(i);             
+                array.remove(i);
                 i--;
             }
         }
     }
 
-    
-    /** 
+    /**
      * @throws Exceptions
      */
     public void functions() throws Exceptions {
