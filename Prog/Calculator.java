@@ -2,9 +2,13 @@ package Software.Prog;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class Calculator {
+
+    public static void Calculate() {
+
+    }
 
     /**
      * @param num1
@@ -13,24 +17,24 @@ public class Calculator {
      * @return Integer
      * @throws Exception
      */
-    public static double calculate(double num1, double num2, char operation) throws Exceptions {
+    public static DataType arithmetics(double num1, double num2, char operation) throws Exceptions {
 
-        double result;
+        DataType result = new DataType();
         switch (operation) {
             case '+':
-                result = num1 + num2;
+                result.setNumber(num1 + num2);
                 break;
             case '*':
-                result = num1 * num2;
+                result.setNumber(num1 * num2);
                 break;
             case '-':
-                result = num1 - num2;
+                result.setNumber(num1 - num2);
                 break;
             case '/':
                 if (num2 == 0) {
                     throw new Exceptions("Denominator is incorrect");
                 }
-                result = num1 / num2;
+                result.setNumber(num1 / num2);
                 break;
             default:
                 throw new Exceptions("Wrong operation");
@@ -44,11 +48,12 @@ public class Calculator {
      * @return double
      * @throws Exceptions
      */
-    public static double pow(double num1, double num2) throws Exceptions {
+    public static DataType pow(double num1, double num2) throws Exceptions {
+        DataType result = new DataType();
         if ((num1 < 0) & ((num2 % 2 == 0) || (num2 == 0.5))) {
             throw new Exceptions("Root of negative number");
         } else {
-            double result = Math.pow(num1, num2);
+            result.setNumber(Math.pow(num1, num2));
             return result;
         }
     }
@@ -59,20 +64,20 @@ public class Calculator {
      * @return double
      * @throws Exceptions
      */
-    public static double trigonometry(double num, String function) throws Exceptions {
-        double result = 0;
+    public static DataType trigonometry(double num, String function) throws Exceptions {
+        DataType result = new DataType();
         switch (function) {
             case "cos":
-                result = Math.cos(num);
+                result.setNumber(Math.cos(num));
                 break;
             case "sin":
-                result = Math.sin(num);
+                result.setNumber(Math.sin(num));
                 break;
             case "tan":
-                result = Math.tan(num);
+                result.setNumber(Math.tan(num));
                 break;
             case "ctan":
-                result = 1 / Math.tan(num);
+                result.setNumber(1 / Math.tan(num));
                 break;
             default:
                 throw new Exceptions("Wrong function");
@@ -104,16 +109,15 @@ public class Calculator {
      * @param b
      * @return double
      */
-    public static double logarithm(double a, double b) {
-        double result = Math.log(b) / Math.log(a);
-        return result;
+    public static DataType logarithm(double a, double b) {
+        return new DataType(Math.log(b) / Math.log(a));
     }
 
     /**
      * @param a
      * @return double
      */
-    public static double factorial(double a) {
+    public static DataType factorial(double a) {
         boolean flag = true;
         double result = 1;
         if (a < 0 || a == -0) {
@@ -125,9 +129,9 @@ public class Calculator {
             result = result * i;
         }
         if (flag) {
-            return result;
+            return new DataType(result);
         } else {
-            return result * (-1);
+            return new DataType(result * (-1));
         }
 
     }
@@ -142,12 +146,11 @@ public class Calculator {
         double y[] = quadraticEquation(5, 6, 1);
         assertEquals(x1, y[0]);
         assertEquals(x2, y[1]);
-        assertEquals(25, calculate(5, 5, '*'));
+        assertEquals(25, arithmetics(5, 5, '*'));
         assertEquals(25, pow(5, 2));
         assertEquals(Math.sin(Math.PI / 2), trigonometry((Math.PI / 2), "sin"));
         assertEquals(1, logarithm(2, 2));
         assertEquals(6, factorial(3));
-
     }
 
 }
