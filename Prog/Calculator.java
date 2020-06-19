@@ -41,7 +41,6 @@ public class Calculator {
         }
         return result;
     }
-
     /**
      * @param num1
      * @param num2
@@ -146,11 +145,11 @@ public class Calculator {
         double y[] = quadraticEquation(5, 6, 1);
         assertEquals(x1, y[0]);
         assertEquals(x2, y[1]);
-        assertEquals(25, arithmetics(5, 5, '*'));
-        assertEquals(25, pow(5, 2));
-        assertEquals(Math.sin(Math.PI / 2), trigonometry((Math.PI / 2), "sin"));
-        assertEquals(1, logarithm(2, 2));
-        assertEquals(6, factorial(3));
+        assertEquals(25.0, arithmetics(5, 5, '*').getNumber());
+        assertEquals(25.0, pow(5, 2).getNumber());
+        assertEquals(Math.sin(Math.PI / 2), trigonometry((Math.PI / 2), "sin").getNumber());
+        assertEquals(1.0, logarithm(2, 2).getNumber());
+        assertEquals(6.0, factorial(3).getNumber());
     }
 
 }

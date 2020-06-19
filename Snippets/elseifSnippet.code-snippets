@@ -1,0 +1,16 @@
+{
+	"Print to console": {
+		"scope": "java",
+		"prefix": "ifelseif",
+		"body": [
+			"if (${1:condition}) {",
+			"",
+			"} else if (${2:condition}) {",
+			"",
+			"} else {",
+			"",
+			"}"
+		],
+		"description": "if{}elseif{} Snippet"
+	}
+}
