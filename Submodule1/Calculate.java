@@ -43,8 +43,6 @@ public class Calculate {
         return result;
     }
 
-
-
     /** 
      * @throws denomException
      */
